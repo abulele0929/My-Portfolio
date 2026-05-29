@@ -34,4 +34,4 @@ while number != guess and attempts > 0:
 if guess == number:
     print("Correct! You got it right!")
 else:    
-    print(f"Game over! The number was {number}.")
+    print(f"Game over dumb ass! The number was {number}. Try again when you're good at guessing.")
