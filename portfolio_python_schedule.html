@@ -1,0 +1,260 @@
+
+<style>
+.phase-header { font-size:13px; font-weight:500; color:var(--color-text-secondary); text-transform:uppercase; letter-spacing:.05em; margin:1.5rem 0 .75rem; }
+.week-card { background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:1rem 1.25rem; margin-bottom:.75rem; }
+.week-card.done { opacity:.6; }
+.week-top { display:flex; align-items:center; gap:10px; margin-bottom:.6rem; }
+.week-badge { font-size:11px; font-weight:500; padding:3px 10px; border-radius:20px; white-space:nowrap; }
+.badge-teal { background:#f2fcf8; color:#085041; }
+.badge-purple { background:#EEEDFE; color:#3C3489; }
+.badge-blue { background:#E6F1FB; color:#0C447C; }
+.badge-coral { background:#FAECE7; color:#712B13; }
+.badge-amber { background:#FAEEDA; color:#633806; }
+.badge-green { background:#EAF3DE; color:#27500A; }
+.week-title { font-size:15px; font-weight:500; color:var(--color-text-primary); }
+.day-row { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:.5rem; }
+.day-pill { font-size:12px; color:var(--color-text-secondary); background:var(--color-background-secondary); border-radius:20px; padding:3px 10px; }
+.day-pill strong { color:var(--color-text-primary); font-weight:500; }
+.portfolio-link { font-size:12px; color:var(--color-text-info); display:flex; align-items:center; gap:4px; margin-top:.4rem; cursor:pointer; background:none; border:none; padding:0; }
+.progress-bar { height:4px; background:var(--color-background-secondary); border-radius:4px; margin-bottom:1.5rem; overflow:hidden; }
+.progress-fill { height:100%; border-radius:4px; background:#1D9E75; transition:width .3s; }
+.check-row { display:flex; align-items:center; gap:8px; }
+.check-btn { width:18px; height:18px; border-radius:4px; border:1.5px solid var(--color-border-secondary); background:var(--color-background-primary); cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all .15s; }
+.check-btn.checked { background:#1D9E75; border-color:#1D9E75; }
+.check-btn.checked::after { content:''; display:block; width:10px; height:6px; border-left:2px solid #fff; border-bottom:2px solid #fff; transform:rotate(-45deg) translateY(-1px); }
+.portfolio-section { background:var(--color-background-secondary); border-radius:var(--border-radius-lg); padding:1rem 1.25rem; margin-top:1.5rem; }
+.tag { display:inline-flex; align-items:center; gap:4px; font-size:12px; padding:3px 10px; border-radius:20px; margin:2px; }
+</style>
+
+<h2 class="sr-only">Python learning schedule for portfolio website project, 1 hour per day</h2>
+
+<div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:.25rem;">
+  <span style="font-size:13px; color:var(--color-text-secondary);">Overall progress</span>
+  <span id="prog-label" style="font-size:13px; font-weight:500; color:var(--color-text-primary);">0 / 10 weeks</span>
+</div>
+<div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+
+<p class="phase-header"><i class="ti ti-brand-python" aria-hidden="true" style="font-size:15px; vertical-align:-2px; margin-right:4px"></i>Phase 1 — Foundation (weeks 1–2)</p>
+
+<div class="week-card" id="wk1">
+  <div class="week-top">
+    <span class="week-badge badge-teal">Week 1</span>
+    <span class="week-title">Syntax, variables &amp; control flow</span>
+  </div>
+  <div class="day-row">
+    <span class="day-pill"><strong>Mon</strong> Install Python + VS Code</span>
+    <span class="day-pill"><strong>Tue</strong> Variables &amp; data types</span>
+    <span class="day-pill"><strong>Wed</strong> if / elif / else</span>
+    <span class="day-pill"><strong>Thu</strong> for &amp; while loops</span>
+    <span class="day-pill"><strong>Fri</strong> Mini challenge: number guessing game</span>
+    <span class="day-pill"><strong>Wknd</strong> Review &amp; tweak your game</span>
+  </div>
+  <div class="check-row">
+    <button class="check-btn" onclick="toggle(this,'wk1')" aria-label="Mark week 1 complete"></button>
+    <button class="portfolio-link" onclick="sendPrompt('How does week 1 Python knowledge connect to building my portfolio website?')">How does this connect to my portfolio? <i class="ti ti-arrow-right" style="font-size:13px"></i></button>
+  </div>
+</div>
+
+<div class="week-card" id="wk2">
+  <div class="week-top">
+    <span class="week-badge badge-teal">Week 2</span>
+    <span class="week-title">Functions &amp; string manipulation</span>
+  </div>
+  <div class="day-row">
+    <span class="day-pill"><strong>Mon</strong> def, arguments, return</span>
+    <span class="day-pill"><strong>Tue</strong> String methods</span>
+    <span class="day-pill"><strong>Wed</strong> f-strings &amp; formatting</span>
+    <span class="day-pill"><strong>Thu</strong> Scope &amp; default args</span>
+    <span class="day-pill"><strong>Fri</strong> Mini challenge: name card generator</span>
+    <span class="day-pill"><strong>Wknd</strong> Polish &amp; share with a friend</span>
+  </div>
+  <div class="check-row">
+    <button class="check-btn" onclick="toggle(this,'wk2')" aria-label="Mark week 2 complete"></button>
+    <button class="portfolio-link" onclick="sendPrompt('How does string manipulation in Python help me build a portfolio website?')">How does this connect to my portfolio? <i class="ti ti-arrow-right" style="font-size:13px"></i></button>
+  </div>
+</div>
+
+<p class="phase-header"><i class="ti ti-database" aria-hidden="true" style="font-size:15px; vertical-align:-2px; margin-right:4px"></i>Phase 2 — Core skills (weeks 3–4)</p>
+
+<div class="week-card" id="wk3">
+  <div class="week-top">
+    <span class="week-badge badge-purple">Week 3</span>
+    <span class="week-title">Lists, dicts &amp; file I/O</span>
+  </div>
+  <div class="day-row">
+    <span class="day-pill"><strong>Mon</strong> Lists &amp; tuples</span>
+    <span class="day-pill"><strong>Tue</strong> Dictionaries &amp; sets</span>
+    <span class="day-pill"><strong>Wed</strong> Reading &amp; writing files</span>
+    <span class="day-pill"><strong>Thu</strong> JSON basics</span>
+    <span class="day-pill"><strong>Fri</strong> Mini challenge: contact book app</span>
+    <span class="day-pill"><strong>Wknd</strong> Save contacts to a JSON file</span>
+  </div>
+  <div class="check-row">
+    <button class="check-btn" onclick="toggle(this,'wk3')" aria-label="Mark week 3 complete"></button>
+    <button class="portfolio-link" onclick="sendPrompt('How will lists, dicts and JSON files be used in my Flask portfolio website?')">How does this connect to my portfolio? <i class="ti ti-arrow-right" style="font-size:13px"></i></button>
+  </div>
+</div>
+
+<div class="week-card" id="wk4">
+  <div class="week-top">
+    <span class="week-badge badge-purple">Week 4</span>
+    <span class="week-title">Error handling &amp; modules</span>
+  </div>
+  <div class="day-row">
+    <span class="day-pill"><strong>Mon</strong> try / except / finally</span>
+    <span class="day-pill"><strong>Tue</strong> Raising exceptions</span>
+    <span class="day-pill"><strong>Wed</strong> import &amp; pip install</span>
+    <span class="day-pill"><strong>Thu</strong> Virtual environments</span>
+    <span class="day-pill"><strong>Fri</strong> Mini challenge: robust file reader</span>
+    <span class="day-pill"><strong>Wknd</strong> Explore PyPI for cool packages</span>
+  </div>
+  <div class="check-row">
+    <button class="check-btn" onclick="toggle(this,'wk4')" aria-label="Mark week 4 complete"></button>
+    <button class="portfolio-link" onclick="sendPrompt('How does error handling and virtual environments help when building a Flask portfolio site?')">How does this connect to my portfolio? <i class="ti ti-arrow-right" style="font-size:13px"></i></button>
+  </div>
+</div>
+
+<p class="phase-header"><i class="ti ti-code" aria-hidden="true" style="font-size:15px; vertical-align:-2px; margin-right:4px"></i>Phase 3 — Intermediate (weeks 5–6)</p>
+
+<div class="week-card" id="wk5">
+  <div class="week-top">
+    <span class="week-badge badge-blue">Week 5</span>
+    <span class="week-title">OOP — classes &amp; objects</span>
+  </div>
+  <div class="day-row">
+    <span class="day-pill"><strong>Mon</strong> class, __init__, self</span>
+    <span class="day-pill"><strong>Tue</strong> Methods &amp; attributes</span>
+    <span class="day-pill"><strong>Wed</strong> Inheritance</span>
+    <span class="day-pill"><strong>Thu</strong> Pythonic style: comprehensions</span>
+    <span class="day-pill"><strong>Fri</strong> Mini challenge: Project class model</span>
+    <span class="day-pill"><strong>Wknd</strong> Model your portfolio projects in code</span>
+  </div>
+  <div class="check-row">
+    <button class="check-btn" onclick="toggle(this,'wk5')" aria-label="Mark week 5 complete"></button>
+    <button class="portfolio-link" onclick="sendPrompt('How will I use Python classes to model my portfolio projects in Flask?')">How does this connect to my portfolio? <i class="ti ti-arrow-right" style="font-size:13px"></i></button>
+  </div>
+</div>
+
+<div class="week-card" id="wk6">
+  <div class="week-top">
+    <span class="week-badge badge-blue">Week 6</span>
+    <span class="week-title">Flask basics — your first web page</span>
+  </div>
+  <div class="day-row">
+    <span class="day-pill"><strong>Mon</strong> pip install flask</span>
+    <span class="day-pill"><strong>Tue</strong> Routes &amp; views</span>
+    <span class="day-pill"><strong>Wed</strong> Jinja2 templates</span>
+    <span class="day-pill"><strong>Thu</strong> Static files (CSS, images)</span>
+    <span class="day-pill"><strong>Fri</strong> Render your name on a page!</span>
+    <span class="day-pill"><strong>Wknd</strong> Style it with basic CSS</span>
+  </div>
+  <div class="check-row">
+    <button class="check-btn" onclick="toggle(this,'wk6')" aria-label="Mark week 6 complete"></button>
+    <button class="portfolio-link" onclick="sendPrompt('Walk me through building my first Flask route and HTML template for my portfolio')">How does this connect to my portfolio? <i class="ti ti-arrow-right" style="font-size:13px"></i></button>
+  </div>
+</div>
+
+<p class="phase-header"><i class="ti ti-layout" aria-hidden="true" style="font-size:15px; vertical-align:-2px; margin-right:4px"></i>Phase 4 — Build the portfolio (weeks 7–9)</p>
+
+<div class="week-card" id="wk7">
+  <div class="week-top">
+    <span class="week-badge badge-coral">Week 7</span>
+    <span class="week-title">Portfolio structure &amp; pages</span>
+  </div>
+  <div class="day-row">
+    <span class="day-pill"><strong>Mon</strong> Plan pages: Home, About, Projects</span>
+    <span class="day-pill"><strong>Tue</strong> Base template &amp; nav</span>
+    <span class="day-pill"><strong>Wed</strong> Home page hero section</span>
+    <span class="day-pill"><strong>Thu</strong> About page</span>
+    <span class="day-pill"><strong>Fri</strong> Projects page — load from JSON</span>
+    <span class="day-pill"><strong>Wknd</strong> Review &amp; fix any broken links</span>
+  </div>
+  <div class="check-row">
+    <button class="check-btn" onclick="toggle(this,'wk7')" aria-label="Mark week 7 complete"></button>
+    <button class="portfolio-link" onclick="sendPrompt('Help me plan the page structure and Flask routes for my portfolio website')">Help me plan my portfolio pages <i class="ti ti-arrow-right" style="font-size:13px"></i></button>
+  </div>
+</div>
+
+<div class="week-card" id="wk8">
+  <div class="week-top">
+    <span class="week-badge badge-coral">Week 8</span>
+    <span class="week-title">Contact form &amp; polish</span>
+  </div>
+  <div class="day-row">
+    <span class="day-pill"><strong>Mon</strong> HTML contact form</span>
+    <span class="day-pill"><strong>Tue</strong> Handle POST requests in Flask</span>
+    <span class="day-pill"><strong>Wed</strong> Send email with smtplib</span>
+    <span class="day-pill"><strong>Thu</strong> Responsive CSS layout</span>
+    <span class="day-pill"><strong>Fri</strong> Test on mobile view</span>
+    <span class="day-pill"><strong>Wknd</strong> Add your real projects &amp; photo</span>
+  </div>
+  <div class="check-row">
+    <button class="check-btn" onclick="toggle(this,'wk8')" aria-label="Mark week 8 complete"></button>
+    <button class="portfolio-link" onclick="sendPrompt('Help me build a working contact form in Flask that sends me an email')">Help me build the contact form <i class="ti ti-arrow-right" style="font-size:13px"></i></button>
+  </div>
+</div>
+
+<div class="week-card" id="wk9">
+  <div class="week-top">
+    <span class="week-badge badge-coral">Week 9</span>
+    <span class="week-title">Git &amp; deploy to the web</span>
+  </div>
+  <div class="day-row">
+    <span class="day-pill"><strong>Mon</strong> git init, commit, push</span>
+    <span class="day-pill"><strong>Tue</strong> Create GitHub repo</span>
+    <span class="day-pill"><strong>Wed</strong> Deploy on Render or Railway</span>
+    <span class="day-pill"><strong>Thu</strong> Custom domain (optional)</span>
+    <span class="day-pill"><strong>Fri</strong> Share your live URL!</span>
+    <span class="day-pill"><strong>Wknd</strong> Celebrate — you shipped!</span>
+  </div>
+  <div class="check-row">
+    <button class="check-btn" onclick="toggle(this,'wk9')" aria-label="Mark week 9 complete"></button>
+    <button class="portfolio-link" onclick="sendPrompt('Walk me through deploying my Flask portfolio website to Render step by step')">Help me deploy my site <i class="ti ti-arrow-right" style="font-size:13px"></i></button>
+  </div>
+</div>
+
+<p class="phase-header"><i class="ti ti-rocket" aria-hidden="true" style="font-size:15px; vertical-align:-2px; margin-right:4px"></i>Phase 5 — Level up (week 10+)</p>
+
+<div class="week-card" id="wk10">
+  <div class="week-top">
+    <span class="week-badge badge-green">Week 10+</span>
+    <span class="week-title">Iterate &amp; grow</span>
+  </div>
+  <div class="day-row">
+    <span class="day-pill">Add a blog section</span>
+    <span class="day-pill">SQLite database</span>
+    <span class="day-pill">User auth (login)</span>
+    <span class="day-pill">Dark mode toggle</span>
+    <span class="day-pill">SEO basics</span>
+    <span class="day-pill">Analytics</span>
+  </div>
+  <div class="check-row">
+    <button class="check-btn" onclick="toggle(this,'wk10')" aria-label="Mark week 10 complete"></button>
+    <button class="portfolio-link" onclick="sendPrompt('What should I add to my portfolio website after the first version is live?')">What should I add next? <i class="ti ti-arrow-right" style="font-size:13px"></i></button>
+  </div>
+</div>
+
+<div class="portfolio-section">
+  <p style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin:0 0 .5rem;">Your portfolio tech stack</p>
+  <div>
+    <span class="tag badge-teal"><i class="ti ti-brand-python" style="font-size:13px" aria-hidden="true"></i> Python 3</span>
+    <span class="tag badge-blue"><i class="ti ti-server" style="font-size:13px" aria-hidden="true"></i> Flask</span>
+    <span class="tag badge-purple"><i class="ti ti-template" style="font-size:13px" aria-hidden="true"></i> Jinja2</span>
+    <span class="tag badge-amber"><i class="ti ti-file-type-html" style="font-size:13px" aria-hidden="true"></i> HTML/CSS</span>
+    <span class="tag badge-coral"><i class="ti ti-brand-git" style="font-size:13px" aria-hidden="true"></i> Git</span>
+    <span class="tag badge-green"><i class="ti ti-cloud-upload" style="font-size:13px" aria-hidden="true"></i> Render</span>
+  </div>
+</div>
+
+<script>
+var completed = {};
+function toggle(btn, id) {
+  completed[id] = !completed[id];
+  btn.classList.toggle('checked', completed[id]);
+  document.getElementById(id).classList.toggle('done', completed[id]);
+  var total = Object.values(completed).filter(Boolean).length;
+  var pct = Math.round(total / 10 * 100);
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-label').textContent = total + ' / 10 weeks';
+}
+</script>
